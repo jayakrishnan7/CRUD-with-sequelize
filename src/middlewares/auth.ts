@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 
-import { user } from "../controllers/users";
+// import { user } from "../controllers/users";
 
 const jwtSecretString: string = process.env.JWT_ACCESS_SECRET!;
 
@@ -12,7 +12,7 @@ export const validateToken = async (
 ) => {
   let token: string | null = req.headers.authorization!;
 
-  if (!token || !token.startsWith("Bearer")) {
+  if (!token || !token.startsWith("Bearer")) { 
     res.send("Unauthorized Access");
   } else {
     token = token.slice(7, token.length);
@@ -59,28 +59,28 @@ export const getSessionInfo = async (
     console.log("deeeeeeeee", decodedToken);
     const email = decodedToken.email;
 
-    const userDetails = await user.findFirst({
-        where: {
-            email
-        }
-    })
+    // const userDetails = await user.findFirst({
+    //     where: {
+    //         email
+    //     }
+    // })
 
-    console.log('detailsssssss', userDetails);
+    // console.log('detailsssssss', userDetails);
 
-    const data = {
-        id: userDetails?.id,
-        username: userDetails?.username,
-        classNumber: userDetails?.classNumber,
-        email: userDetails?.email,
-        phone: userDetails?.phone,
-        dob: userDetails?.dob,
-        isDeleted: userDetails?.isDeleted,
+    // const data = {
+    //     id: userDetails?.id,
+    //     username: userDetails?.username,
+    //     classNumber: userDetails?.classNumber,
+    //     email: userDetails?.email,
+    //     phone: userDetails?.phone,
+    //     dob: userDetails?.dob,
+    //     isDeleted: userDetails?.isDeleted,
 
-    }
+    // }
 
-    console.log('filtered data from token', data);
+    // console.log('filtered data from token', data);
     
-    req.sessionObj = data;
+    // req.sessionObj = data;
 
     next();
   } catch (error) {
