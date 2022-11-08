@@ -11,8 +11,17 @@ import jwt from 'jsonwebtoken';
 // cross origin resource sharing............
 import cors from 'cors'
 
-// morgan for logs............
+// morgan for logs.................
 import morgan from 'morgan';
+
+// db configured successfully......
+import db  from './config/db';
+
+// test db ........................
+db.authenticate()
+.then(() => console.log("Db connected with sequelize..."))
+.catch((error) => console.log("Error", error));
+
 
 const app = express();
 

@@ -11,21 +11,6 @@ import CryptoJS from "crypto-js";
 // date formatting..........
 import moment from "moment";
 
-// importing typeORM sequalize...........
-import { Sequelize } from "sequelize-typescript";
-const sequelize = new Sequelize("crudwithsequelize", "root", "root", {
-  host: "localhost",
-  dialect: "mysql",
-
-});
-
-
-// test db .........
-sequelize.authenticate()
-.then(() => console.log("Db connected with sequelize successfully"))
-.catch((error) => console.log("Error", error));
-
-
 // environment variables........
 import * as dotenv from "dotenv";
 dotenv.config();
