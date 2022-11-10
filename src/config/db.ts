@@ -1,8 +1,8 @@
 import { Sequelize } from "sequelize-typescript";
 
-const db = new Sequelize("crudwithsequelize", "root", "root", {
+const sequelize = new Sequelize("crudwithsequelize", "root", "root", {
   host: "localhost",
   dialect: "mysql",
 });
 
-export default db;
+export default sequelize;

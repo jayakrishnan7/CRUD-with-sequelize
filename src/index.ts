@@ -15,10 +15,10 @@ import cors from 'cors'
 import morgan from 'morgan';
 
 // db configured successfully......
-import db  from './config/db';
+import sequelize  from './config/db';
 
 // test db ........................
-db.authenticate()
+sequelize.authenticate()
 .then(() => console.log("Db connected with sequelize..."))
 .catch((error) => console.log("Error", error));
 

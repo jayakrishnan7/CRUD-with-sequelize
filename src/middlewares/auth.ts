@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
+import Gig from "../models/Gig";
 
 // import { user } from "../controllers/users";
 
@@ -39,8 +40,7 @@ export const validateToken = async (
   }
 };
 
-// import { HttpContextContract } from "@ioc:Adonis/Core/HttpContext";
-// import { request } from "http";
+
 
 export const getSessionInfo = async (
   req: any,
@@ -59,28 +59,28 @@ export const getSessionInfo = async (
     console.log("deeeeeeeee", decodedToken);
     const email = decodedToken.email;
 
-    // const userDetails = await user.findFirst({
-    //     where: {
-    //         email
-    //     }
-    // })
+    const userDetails = await Gig.findOne({
+        where: {
+            email
+        }
+    })
 
-    // console.log('detailsssssss', userDetails);
+    console.log('detailsssssss', userDetails);
 
-    // const data = {
-    //     id: userDetails?.id,
-    //     username: userDetails?.username,
-    //     classNumber: userDetails?.classNumber,
-    //     email: userDetails?.email,
-    //     phone: userDetails?.phone,
-    //     dob: userDetails?.dob,
-    //     isDeleted: userDetails?.isDeleted,
+    const data = {
+        id: (userDetails as any).id,
+        username: (userDetails as any).username,
+        classNumber: (userDetails as any).classNumber,
+        email: (userDetails as any).email,
+        phone: (userDetails as any).phone,
+        dob: (userDetails as any).dob,
+        isDeleted: (userDetails as any).isDeleted,
 
-    // }
+    }
 
-    // console.log('filtered data from token', data);
+    console.log('filtered data from token', data);
     
-    // req.sessionObj = data;
+    req.sessionObj = data;
 
     next();
   } catch (error) {

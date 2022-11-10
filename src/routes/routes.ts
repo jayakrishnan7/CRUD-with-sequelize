@@ -6,7 +6,6 @@ import {
   allUsers,
   updateUser,
   loginUser,
-  htmlToPdfConversion,
 } from "../controllers/users";
 
 import { validateToken, getSessionInfo } from "../middlewares/auth";
@@ -18,8 +17,6 @@ router.post("/register", createPerson);
 router.put("/updateUser", validateToken, getSessionInfo, updateUser);
 
 router.delete("/delete/:id", validateToken, getSessionInfo, deletePerson);
-
-router.get("/htmlToPdf", htmlToPdfConversion);
 
 router.post("/login", loginUser);
 
