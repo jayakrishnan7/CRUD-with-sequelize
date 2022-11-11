@@ -197,29 +197,7 @@ const updateUser = async (req: Request, res: Response) => {
     const newId = parseInt(id);
     // console.log("uuuuuuuuu", typeof newId);
 
-    // const updatingUser = await Gig.update({
-    //   where: {
-    //     id: newId,
-    //   },
-    //    {
-    //     username,
-    //     classNumber,
-    //     email,
-    //     password,
-    //     phone,
-    //     dob,
-    //     photo
-    //   }
-    // });
-
-    // res.json({
-    //   message: "Updated successfully...",
-    // });
-
-    //,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-
     const gig = {
-      // id: newId,
       username,
       classNumber,
       email,
@@ -231,7 +209,6 @@ const updateUser = async (req: Request, res: Response) => {
 
     function updateGig(gig: any, id: number) {
       const updateGig = {
-        // id: gig.id,
         username: gig.username,
         classNumber: gig.classNumber,
         email: gig.email,
@@ -264,7 +241,7 @@ const updateUser = async (req: Request, res: Response) => {
 //     // console.log("deeeelllllllll", newId);
 //     // console.log("vvvvvvvv", typeof newId);
 
-//     const deleteUser = await user.delete({
+//     const deleteUser = await Gig.destroy({
 //       where: {
 //         id: newId,
 //       },
@@ -289,17 +266,6 @@ const deletePerson = async (req: Request, res: Response) => {
     const newId = parseInt(id);
     // console.log("deeeelllllllll", newId);
     // console.log("vvvvvvvv", typeof newId);
-
-    // const userData = {
-    //   isDeleted: true,
-    // };
-
-    // const deleteUser = await Gig.update({
-    //   where: {
-    //     id: newId,
-    //   },
-    //   data: userData,
-    // });
 
     function updateGig(id: number) {
       const updateGig = {
@@ -326,5 +292,4 @@ export {
   updateUser,
   deletePerson,
   loginUser,
-  // user,
 };
