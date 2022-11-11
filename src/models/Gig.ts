@@ -16,6 +16,7 @@ const Gig = db.define(
     },
     email: {
       type: DataType.STRING,
+      unique: true
     },
     isDeleted: {
       type: DataType.BOOLEAN,
